@@ -23,6 +23,7 @@
     <preference name="APP_NAME" />
     <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
     <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.13.0"/>
+    <preference name="SwiftVersion" value="4.0" />
 
     <engines>
         <!-- Requires > 3.5.0 because of the custom Framework tag for iOS [CB-6698] -->
@@ -80,10 +81,7 @@
     </platform>
 
     <!-- ios -->
-    <platform name="ios">
-	    
-	<preference name="SwiftVersion" value="4.0" />
-	    
+    <platform name="ios">	    
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
             <clobbers target="facebookConnectPlugin" />
         </js-module>
