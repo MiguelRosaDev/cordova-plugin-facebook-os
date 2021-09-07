@@ -164,8 +164,7 @@
         </config-file>
 
         <!-- Facebook SDK -->
-	<custom-preference name="ios-XCBuildConfiguration-UseSwiftLanguageVersion" value="4" buildType="debug" quote="none" xcconfigEnforce="true"/>
-	<custom-preference name="ios-XCBuildConfiguration-SwiftVersion" value="4.0" buildType="debug" quote="none" xcconfigEnforce="true"/>
+	<dependency id="https://github.com/akofman/cordova-plugin-add-swift-support"/>
 	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.2.0" />
