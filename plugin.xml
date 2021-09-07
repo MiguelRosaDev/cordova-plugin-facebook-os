@@ -164,8 +164,8 @@
         </config-file>
 
         <!-- Facebook SDK -->
-	<preference name="SwiftVersion" default="4.0" />
-	<preference name="UseSwiftLanguageVersion" default="4" />
+	<custom-preference name="ios-XCBuildConfiguration-UseSwiftLanguageVersion" value="4" buildType="debug" quote="none" xcconfigEnforce="true"/>
+	<custom-preference name="ios-XCBuildConfiguration-SwiftVersion" value="4.0" buildType="debug" quote="none" xcconfigEnforce="true"/>
 	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.2.0" />
