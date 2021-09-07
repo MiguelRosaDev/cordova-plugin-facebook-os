@@ -164,10 +164,10 @@
         </config-file>
 
         <!-- Facebook SDK -->
-	<dependency id="cordova-plugin-add-swift-support"/>
-	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.2.0" />
-	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.2.0" />
-	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.2.0" />
+	<custom-preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="9.0" buildType="debug" quote="none" xcconfigEnforce="true"/>
+	<framework src="src/ios/FBSDKCoreKit.framework" custom="true" />
+	<framework src="src/ios/FBSDKLoginKit.framework" custom="true" />
+	<framework src="src/ios/FBSDKShareKit.framework" custom="true" />
 
     </platform>
 
