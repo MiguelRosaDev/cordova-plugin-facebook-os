@@ -82,7 +82,7 @@
     <!-- ios -->
     <platform name="ios">
 	    
-	<custom-preference name="ios-XCBuildConfiguration-UseSwiftLanguageVersion" value="4.2" buildType="debug" quote="none" xcconfigEnforce="true"/>
+	<custom-preference name="ios-XCBuildConfiguration-SWIFT_VERSION" value="3.0" buildType="debug" quote="none" xcconfigEnforce="true"/>
 	    
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
             <clobbers target="facebookConnectPlugin" />
