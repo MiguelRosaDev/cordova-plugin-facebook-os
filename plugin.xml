@@ -23,7 +23,8 @@
     <preference name="APP_NAME" />
     <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
     <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.13.0"/>
-    <variable name="SwiftVersion" value="4.0" />
+	
+    <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
 
     <engines>
         <!-- Requires > 3.5.0 because of the custom Framework tag for iOS [CB-6698] -->
@@ -83,7 +84,7 @@
     <!-- ios -->
     <platform name="ios">
 	    
-	<preference name="SwiftVersion" value="4.0" />
+	<preference name="SwiftVersion" default="4.0" />
 	    
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
             <clobbers target="facebookConnectPlugin" />
