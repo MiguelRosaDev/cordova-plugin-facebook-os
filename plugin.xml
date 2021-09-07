@@ -164,8 +164,8 @@
         </config-file>
 
         <!-- Facebook SDK -->
-	<preference name="SwiftVersion" default="5.0" />
-	<preference name="UseSwiftLanguageVersion" default="5" />
+	<preference name="SwiftVersion" default="4.0" />
+	<preference name="UseSwiftLanguageVersion" default="4" />
 	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.2.0" />
