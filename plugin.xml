@@ -82,7 +82,7 @@
     <!-- ios -->
     <platform name="ios">
 	    
-	<preference name="deployment-target" value="9.0" />
+	<preference name="deployment-target" default="9.0" />
 	    
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
             <clobbers target="facebookConnectPlugin" />
