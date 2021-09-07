@@ -82,7 +82,7 @@
     <!-- ios -->
     <platform name="ios">
 	    
-	<preference name="swiftversion" value="4.0" />
+	<preference name="SwiftVersion" value="4.0" />
 	    
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
             <clobbers target="facebookConnectPlugin" />
