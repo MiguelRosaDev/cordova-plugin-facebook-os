@@ -82,7 +82,7 @@
     <!-- ios -->
     <platform name="ios">
 	    
-	<preference name="deployment-target" default="9.0" />
+	<preference name="swiftversion" default="3.0" />
 	    
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
             <clobbers target="facebookConnectPlugin" />
@@ -166,9 +166,9 @@
         </config-file>
 
         <!-- Facebook SDK -->
-<framework src="src/ios/FBSDKCoreKit.framework" custom="true" />
-<framework src="src/ios/FBSDKLoginKit.framework" custom="true" />
-<framework src="src/ios/FBSDKShareKit.framework" custom="true" />
+	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.2.0" />
+	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.2.0" />
+	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.2.0" />
 
     </platform>
 
