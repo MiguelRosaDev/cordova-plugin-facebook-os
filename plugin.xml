@@ -164,7 +164,7 @@
         </config-file>
 
         <!-- Facebook SDK -->
-	<dependency id="https://github.com/akofman/cordova-plugin-add-swift-support"/>
+	<dependency id="cordova-plugin-add-swift-support"/>
 	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.2.0" />
 	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.2.0" />
