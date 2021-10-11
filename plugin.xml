@@ -164,10 +164,15 @@
         </config-file>
 
         <!-- Facebook SDK -->
+	<framework src="FBSDKCoreKit" type="podspec" spec="~> 8.0.0" />
+	<framework src="FBSDKLoginKit" type="podspec" spec="~> 8.0.0" />
+	<framework src="FBSDKShareKit" type="podspec" spec="~> 8.0.0" />
+	    <!--
 	<custom-preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="9.0" buildType="debug" quote="none" xcconfigEnforce="true"/>
 	<framework src="src/ios/FBSDKCoreKit.framework" custom="true" />
 	<framework src="src/ios/FBSDKLoginKit.framework" custom="true" />
 	<framework src="src/ios/FBSDKShareKit.framework" custom="true" />
+	  -->
 
     </platform>
 
