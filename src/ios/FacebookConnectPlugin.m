@@ -31,7 +31,6 @@
 
 - (void)pluginInitialize {
     NSLog(@"Starting Facebook Connect plugin");
-    FBSDKShareOpenGraphObject *object = [FBSDKShareOpenGraphObject objectWithProperties:json];
 
     // Add notification listener for tracking app activity with FB Events
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -41,10 +40,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(applicationDidBecomeActive:)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                         selector:@selector(handleOpenURLWithAppSourceAndAnnotation:) 
-                                             name:CDVPluginHandleOpenURLWithAppSourceAndAnnotationNotification object:nil];
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *) notification {
@@ -63,13 +58,6 @@
         self.applicationWasActivated = YES;
         [self enableHybridAppEvents];
     }
-}
-
-- (void) handleOpenURLWithAppSourceAndAnnotation:(NSNotification *) notification {
-    NSMutableDictionary * options = [notification object];
-    NSURL* url = options[@"url"];
-
-    [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication] openURL:url options:options];
 }
 
 #pragma mark - Cordova commands
@@ -319,6 +307,43 @@
         }
 
         [dialog show];
+        /* Miguel Rosa - removed, this object does not exists anymore in the new sdk versions
+        return;
+    }
+    else if ( [method isEqualToString:@"share_open_graph"] ) {
+        if(!params[@"action"] || !params[@"object"]) {
+            NSLog(@"No action or object defined");
+            return;
+        }
+
+        //Get object JSON
+        NSError *jsonError;
+        NSData *objectData = [params[@"object"] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:objectData
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:&jsonError];
+
+        if(jsonError) {
+            NSLog(@"There was an error parsing your 'object' JSON string");
+        } else {
+            FBSDKShareOpenGraphObject *object = [FBSDKShareOpenGraphObject objectWithProperties:json];
+            if(!json[@"og:type"]) {
+                NSLog(@"No 'og:type' encountered in the object JSON. Please provide an Open Graph object type.");
+                return;
+            }
+            NSString *objectType = json[@"og:type"];
+            objectType = [objectType stringByReplacingOccurrencesOfString:@"."
+                                                               withString:@":"];
+            FBSDKShareOpenGraphAction *action = [FBSDKShareOpenGraphAction actionWithType:params[@"action"] object:object key:objectType];
+
+            FBSDKShareOpenGraphContent *content = [[FBSDKShareOpenGraphContent alloc] init];
+            content.action = action;
+            content.previewPropertyName = objectType;
+            [FBSDKShareDialog showFromViewController:self.topMostController
+                                         withContent:content
+                                            delegate:nil];
+        }
+        */
         return;
     }
     else if ([method isEqualToString:@"apprequests"]) {
@@ -753,43 +778,38 @@ void FBMethodSwizzle(Class c, SEL originalSelector) {
         method_exchangeImplementations(originalMethod, newMethod);
     }
 }
-
+/*
 + (void)load
 {
     FBMethodSwizzle([self class], @selector(application:openURL:sourceApplication:annotation:));
     FBMethodSwizzle([self class], @selector(application:openURL:options:));
 }
-
 // This method is a duplicate of the other openURL method below, except using the newer iOS (9) API.
 - (BOOL)swizzled_application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     if (!url) {
         return NO;
     }
     // Required by FBSDKCoreKit for deep linking/to complete login
-    [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:[options valueForKey:@"UIApplicationOpenURLOptionsSourceApplicationKey"] annotation:0x0];
+    //[[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:[options valueForKey:@"UIApplicationOpenURLOptionsSourceApplicationKey"] annotation:0x0];
     
     // NOTE: Cordova will run a JavaScript method here named handleOpenURL. This functionality is deprecated
     // but will cause you to see JavaScript errors if you do not have window.handleOpenURL defined:
     // https://github.com/Wizcorp/phonegap-facebook-plugin/issues/703#issuecomment-63748816
     NSLog(@"FB handle url using application:openURL:options: %@", url);
-
     // Call existing method
     return [self swizzled_application:application openURL:url options:options];
 }
-
 - (BOOL)noop_application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return NO;
 }
-
 - (BOOL)swizzled_application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     if (!url) {
         return NO;
     }
     // Required by FBSDKCoreKit for deep linking/to complete login
-    [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-
+    //[[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     // NOTE: Cordova will run a JavaScript method here named handleOpenURL. This functionality is deprecated
     // but will cause you to see JavaScript errors if you do not have window.handleOpenURL defined:
     // https://github.com/Wizcorp/phonegap-facebook-plugin/issues/703#issuecomment-63748816
@@ -797,5 +817,5 @@ void FBMethodSwizzle(Class c, SEL originalSelector) {
     
     // Call existing method
     return [self swizzled_application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-}
+}*/
 @end
