@@ -31,6 +31,7 @@
 
 - (void)pluginInitialize {
     NSLog(@"Starting Facebook Connect plugin");
+    FBSDKShareOpenGraphObject *object = [FBSDKShareOpenGraphObject objectWithProperties:json];
 
     // Add notification listener for tracking app activity with FB Events
     [[NSNotificationCenter defaultCenter] addObserver:self
