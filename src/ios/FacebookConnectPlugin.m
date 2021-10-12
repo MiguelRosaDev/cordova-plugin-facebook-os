@@ -307,7 +307,7 @@
         }
 
         [dialog show];
-        /* Miguel Rosa - removed, this object does not exists anymore in the new sdk versions
+        /* Miguel Rosa - removed, this object (FBSDKShareOpenGraphObject) does not exists anymore in the new sdk versions
         return;
     }
     else if ( [method isEqualToString:@"share_open_graph"] ) {
